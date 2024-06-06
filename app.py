@@ -3,21 +3,21 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext
 import requests
 
-# Set up logging
+# Set up logging here.......
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 # Define the handler for the /start command
 def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text("Howdy! I'm your friendly bot. Type 'hello' to get a greeting!")
+    update.message.reply_text("Howdy! Your Movie wiki here. Type 'hello' to get a greeting!")
 
 # Define the handler for user messages
 def handle_message(update: Update, context: CallbackContext) -> None:
     user_message = update.message.text.lower()
     if user_message == 'hello':
-        update.message.reply_text("Howdy!")
+        update.message.reply_text("Hello! This bot can serve as a movie wiki. Search by typing any movie name. Btw, my favourite director is Christopher Nolan")
     elif user_message:
         # Call the OMDb API
-        api_key = '1d256664'
+        api_key = 'XXX'  #YOUR_API_KEY_HERE
         url = f'http://www.omdbapi.com/?apikey={api_key}&t={user_message}'
       
         response = requests.get(url)
@@ -38,11 +38,11 @@ def handle_message(update: Update, context: CallbackContext) -> None:
 
 
 
-###################-----------------Below CODE is used for BOT
+###################-----------------Below CODE is used for the Telegram BOT
 
 def main() -> None:
-    # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-    updater = Updater(token='6864863030:AAGOUYS55oAZomV9njRp5wLpJtcaZ4LWj34', use_context=True)
+
+    updater = Updater(token='YYY', use_context=True)  #YOUR_TELEGRAM_BOT_TOKEN_HERE
     dispatcher = updater.dispatcher
 
     # Add handlers
