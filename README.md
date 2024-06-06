@@ -1,5 +1,5 @@
 1. Clone repository
-git clone https://github.com/
+git clone https://github.com/Satish-Kuppan/Movie-Wiki.git
 
 2. Install requirements
 pip install -r requirements.txt
